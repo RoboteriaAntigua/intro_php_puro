@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<title>Required </title>
+<body>
+<h3>Required </h3>
+<p> Php ofreceria solucion en caso de ser formulario y server todo en una sola pagina.</p>
+<p> De la validacion se va a encargar javascript dado que esta se hace en el front</p>
+
+<form action=""  id="id1">
+Nombre: <input type="text" name="name" id="idName"><br>
+<span class="error" id="idSpanNombre">  </span>  <!--span para mostrar el *required-->
+
+E-mail:  <input type="text" name="email" id="idEmail"><br>
+<span class="error" id="idSpanEmail">     </span> 
+<!--<input type="submit" > no lo usamos-->
+</form>
+<button type="button" onclick="Validar()">Enviar formulario</button>
+
+
+</script>
+
+<p id="id2"></p>
+</body>
+</html>
+
+
+<script>
+    function Validar(){
+        //Creamos un objeto js con el formulario! con todos los metodos habituales de un form
+        let form = document.getElementById("id1");
+    form.action = '4_required_server.php';
+    form.method = 'POST';
+    if( idName.value == ""){
+    idSpanNombre.innerHTML="*se requiere completar el nombre <br>";
+    
+    document.getElementById("id2").innerHTML="validado: "+idName.value;
+    }
+    else if(idEmail.value == ""){
+        idSpanEmail.innerHTML="*se requiere completar el email";
+    }else{
+        form.submit();
+    }
+    }
+</script>
